@@ -1,3 +1,9 @@
+// React Navigation types
+type RootStackParamList = {
+  Home: undefined
+}
+
+
 
 type Roil = {
         times: number,
