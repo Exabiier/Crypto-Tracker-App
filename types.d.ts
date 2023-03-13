@@ -1,9 +1,14 @@
 // React Navigation types
 type RootStackParamList = {
-  Home: undefined
+  Home: undefined,
+  Details: undefined,
 }
 
+type CoinDetailsScreenNavigationProp = NavigationProp<RootStackParamList, "Details">
+type HomeScreenNavigationProp = NavigationProp<RootStackParamList,"Home">
 
+
+// Types of the application
 
 type Roil = {
         times: number,
@@ -40,6 +45,103 @@ type CryptoCurrencyCoin =  {
     last_updated: string
   }
 
-  type CyptoCoin = {
-
+  type CyptoCoinData = {
+    id: string,
+    symbol: string,
+    name: string,
+    description: {
+      en: string,
+    },
+    image: {
+      thumb: string,
+      small: string,
+      large: string,
+    },
+    market_data: {
+      current_price: {
+        usd: number,
+      },
+      ath: {
+        usd: number,
+      },
+      ath_change_percentage: {
+        usd: number,
+      },
+      ath_date: {
+        usd: string,
+      },
+      atl: {
+        usd: number,
+      },
+      atl_change_percentage: {
+        usd: number,
+      },
+      atl_date: {
+        usd: string,
+      },
+      market_cap: {
+        usd: number,
+      },
+      market_cap_rank: number,
+      fully_diluted_valuation: {
+        usd: number,
+      },
+      total_volume: {
+        usd: number,
+      },
+      high_24h: {
+        usd: number,
+      },
+      low_24h: {
+        usd: number,
+      },
+      price_change_24h: number,
+      price_change_percentage_24h: number,
+      price_change_percentage_7d: number,
+      price_change_percentage_14d: number,
+      price_change_percentage_30d: number,
+      price_change_percentage_60d: number,
+      price_change_percentage_200d: number,
+      price_change_percentage_1y: number,
+      market_cap_change_percentage_24h: number,
+      price_change_24h_in_currency: {
+        usd: number,
+      },
+      price_change_percentage_1h_in_currency: {
+        usd: number,
+      },
+      price_change_percentage_24h_in_currency: {
+        usd: number,
+      },
+      price_change_percentage_7d_in_currency: {
+        usd: number,
+      },
+      price_change_percentage_14d_in_currency: {
+        usd: number,
+      },
+      price_change_percentage_30d_in_currency: {
+        usd: number,
+      },
+      price_change_percentage_60d_in_currency: {
+        usd: number,
+      },
+      price_change_percentage_200d_in_currency: {
+        usd: number,
+      },
+      price_change_percentage_1y_in_currency: {
+        usd: number,
+      },
+      total_supply: number,
+      max_supply: number,
+      circulating_supply: number,
+    },
+    prices: [number, number][],
+    tickers: [
+      {
+        base: string,
+        target: string,
+        last: number,
+        coin_id: string,
+      }
+    ]
   }
