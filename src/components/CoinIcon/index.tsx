@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import { AntDesign } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/native';
+
 
 type Props = {
   coin: CryptoCurrencyCoin;
@@ -9,6 +11,7 @@ type Props = {
 
 const CoinItem = ({ coin }: Props) => {
   const [color, setColor] = useState<boolean>();
+  const navigation = useNavigation<CoinDetailsScreenNavigationProp>();
 
   const { name, 
     current_price, 
@@ -41,9 +44,11 @@ const CoinItem = ({ coin }: Props) => {
 
   return (
     <View className="flex flex-row  border-b-[1px] border-[#2f2f2f] p-[15px] shadow-lg align-center">
-        <Image 
+      <TouchableOpacity onPress={() => navigation.navigate("Details") }>
+      <Image 
         source={{ uri: image }}
         className='h-10 w-10 '/>
+      </TouchableOpacity>
       
        <View className='ml-4'>
         <Text className="text-white text-base font-bold mb-[1px]">{name}</Text>
@@ -68,7 +73,7 @@ const CoinItem = ({ coin }: Props) => {
 
           <Text className={color ? "text-red-400 font-bold": "text-green-400 font-bold"}>{price_change_percentage_24h.toFixed(2)}%</Text>
         </View>
-  
+        
         
        </View>
        <View style={{ marginLeft: 'auto', alignItems: 'flex-end'}}>
