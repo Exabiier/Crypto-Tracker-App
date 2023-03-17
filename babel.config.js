@@ -2,6 +2,6 @@ module.exports = function(api) {
   api.cache(true);
   return {
     presets: ['babel-preset-expo', '@babel/preset-typescript'],
-    plugins: ["nativewind/babel"]
+    plugins: ["nativewind/babel", 'react-native-reanimated/plugin']
   };
 };
